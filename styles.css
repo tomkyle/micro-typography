@@ -1,0 +1,119 @@
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+
+
+:root {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+
+  /* Flexoki by Steph Ango https://stephango.com/flexoki */
+  --flexoki-black:           #100F0F;
+  --flexoki-paper:           #FFFCF0;
+  --flexoki-blue-900:        #12253B;
+
+  --foreground: light-dark(var(--flexoki-blue-900), var(--flexoki-paper));
+  --background: light-dark(var(--flexoki-paper),    var(--flexoki-blue-900));
+  --form-bg:    light-dark(color-mix(in oklch, var(--background), var(--flexoki-black) 10%), color-mix(in oklch, var(--background), var(--flexoki-paper) 15%));
+  --codeColor:  #e83e8c;
+}
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color:            var(--foreground);
+	background-color: var(--background);
+}
+
+body > * {
+  width: min(100ch, calc(100vw - 4rem));
+  margin: 2rem auto;
+}
+
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+p { text-wrap: pretty; margin: 1rem 0; }
+
+h1 + p {
+  font-size: 1.4em;
+  font-weight: 250;
+  text-wrap: balance;
+}
+input, button, textarea, select { font: inherit; }
+
+textarea {
+  border: 1px solid var(--form);
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  background: var(--form-bg);
+  font-family: monospace;
+  resize: vertical;
+}
+
+textarea:not([rows]) {
+  resize: vertical;
+  height: 30vh;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 2rem;
+}
+
+button {
+  border: 1px solid var(--foreground);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background: var(--background);
+
+  &:hover, &:focus {
+    background-color: var(--form-bg);
+  }
+}
+
+
+code {
+  word-break: break-word;
+}
+
+p code {
+  padding: 0.1rem 0.5rem;
+}
+
+
+
+table {
+  margin-top: 2rem;
+  font-size: 0.8em;
+}
+
+th { text-align: left; }
+td {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0.5em 0.5rem 0;
+}
+td.s { font-family: monospace; }
+td code {
+  color: var(--codeColor);
+}
+
+tr:has(td:hover) {
+  td { background-color: var(--form-bg); }
+}
+
+#successIcon {
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+
+}
+#successIcon.visible {
+  opacity: 1;
+  transition: opacity 600ms linear;
+}

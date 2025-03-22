@@ -1,0 +1,167 @@
+[
+	{
+		"search": "TA(\\s+)?(\\d)",
+		"replace": "TA $2",
+		"label": "TA · Teigausbeuten"
+	},
+
+	{
+		"search": "<(li|h2|h3|h4|h5|h6)( [^>]+)?>\\s*([\\s]*|&nbsp;)*\\s*<\\/(li|h2|h3|h4|h5|h6)>",
+		"replace": "",
+		"label": "Leere Überschriften und List-items löschen"
+	},
+
+	{
+		"search": "z\\.([\\s]*|&nbsp;)?B.",
+		"replace": "z. B.",
+		"label": "Abkürzungen: z.B."
+	},
+
+	{
+		"search": "»([^\\s ])",
+		"replace": "» $1",
+		"label": "Fehlender Weißraum nach öffenden Guillemets"
+	},
+
+	{
+		"search": "([^\\s ])«",
+		"replace": "$1 «",
+		"label": "Fehlender Weißraum vor schließenden Guillemets"
+	},
+
+	{
+		"search": "<th( [^>]+)?>\\s*<(strong|b)>([^<]+)<\\/(strong|b)>\\s*<\\/th>",
+		"replace": "<th$1>$3</th>",
+		"label": "Fälschlich gefettete Tabellenköpfe"
+	},
+
+
+
+	{
+		"search": "<((p|li|h2|h3|h4|h5|h6)( [^>]+)?)>\\s*<span>",
+		"replace": "<$1>",
+		"label": "Überflüssige <code>span</code> am ANFANG von <code>p|li|h2|h3</code> Tags"
+	},
+	{
+		"search": "<\\/span>\\s*<\\/(p|li|h2|h3)>",
+		"replace": "</$1>",
+		"label": "Überflüssige <code>span</code> am ENDE von <code>p|li|h2|h3</code> Tags"
+	},
+
+	{
+		"search": "<((p|li|span|div|th|td|h2|h3|h4|h5|h6)( [^>]+)?)>\\s*(&nbsp;)+",
+		"replace": "<$1>",
+		"label": "Merkwürdige Leerzeichen am ANFANG von <code>p|li|span|div|th|td|h*</code> Tags"
+	},
+	{
+		"search": "(&nbsp;)+\\s*<\\/(p|li|span|div|th|td|h2|h3|h4|h5|h6)>",
+		"replace": "</$2>",
+		"label": "Merkwürdige Leerzeichen am ENDE von <code>p|li|span|div|th|td|h*</code> Tags"
+	},
+
+	{
+		"search": "(\\sS\\.)\\s*(\\d+)",
+		"replace": "$1 $2",
+		"label": "Seiten-Angaben wie S.42"
+	},
+	{
+		"search": "(\\d+)\\s*[\\-–]\\s*(\\d+)(\\s+(Std.|Stunden?|Min(uten))?)",
+		"replace": "$1 – $2&nbsp;$3",
+		"label": "Zeitdauer"
+	},
+	{
+		"search": "(\\d+)\\s+(Uhr)",
+		"replace": "$1 $2",
+		"label": "Uhrzeiten"
+	},
+	{
+		"search": "(\\d{2}):(\\d{2}):(\\d{2})",
+		"replace": "$1 : $2 : $3",
+		"label": "Zeitdauern h/min/sec"
+	},
+	{
+		"search": "(\\d{2}):(\\d{2})",
+		"replace": "$1 : $2",
+		"label": "Zeitdauern min/sec"
+	},
+	{
+		"search": "(\\d)\\. (Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember) (\\d{4})",
+		"replace": "$1. $2 $3 ",
+		"label": "Datumsangaben mit Jahr"
+	},
+	{
+		"search": "(\\d)\\. (Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)",
+		"replace": "$1. $2",
+		"label": "Datumsangaben ohne Jahr"
+	},
+	{
+		"search": "<p>\\s+<\\/p>",
+		"replace": "",
+		"label": "Leere Absätze"
+	},
+	{
+		"search": "(\\d+)([\\s ]*|&nbsp;)[\\-––]([\\s ]*|&nbsp;)(\\d+)",
+		"replace": "$1 – $4",
+		"label": "Bis-Striche"
+	},
+	{
+		"search": "(\\d{3}) – (\\d{10})",
+		"replace": "$1-$2",
+		"label": "Rückgängig „Bis-Striche“ bei ISBN-Nummern"
+	},
+	{
+		"search": "(\\d)(&nbsp;|[\\s ])*((€|cm|mm|µm|g|kg|Kilogramm|Gramm|l|ml|%|°C|Prozent|Minuten|Stunden)[\\s<\\)])",
+		"replace": "$1 $3",
+		"label": "Zahlen und Einheiten mit Weißraum"
+	},
+	{
+		"search": "(\\d)(&nbsp;|[\\s ])*((€|cm|mm|µm|g|kg|l|ml|\\%|°C|Prozent|Minuten|Stunden)[\\s<\\)]?)",
+		"replace": "$1 $3",
+		"label": "Zahlen und Einheiten OHNE Weißraum"
+	},
+	{
+		"search": "(\\d+)(\\s|&nbsp;)?x(\\s|&nbsp;)?(\\d+)",
+		"replace": "$1 × $4",
+		"label": "Zweigliedrige Maßangaben - Vorsicht mit Bild-URLs"
+	},
+	{
+		"search": "(\\d+)(\\s|&nbsp;)?x(\\s|&nbsp;)?(\\d+)(\\s|&nbsp;)?x(\\s|&nbsp;)?(\\d+)",
+		"replace": "$1 × $4 × $7",
+		"label": "Dreigliedrige Maßangaben"
+	},
+	{
+		"search": "(&nbsp;)+\\s*<br>",
+		"replace": "<br>",
+		"label": "Überschüssige nbsp’s vor Zeilenumbruch"
+	},
+	{
+		"search": "Vitamin(\\s+|&nbsp;)([A-Z])",
+		"replace": "Vitamin $2",
+		"label": "Vitamin C et al."
+	},
+	{
+		"search": "Bosch MUM(\\s+)?(\\d)",
+		"replace": "Bosch MUM $2",
+		"label": "Bosch MUM Geräte"
+	},
+	{
+		"search": "Cooking Chef",
+		"replace": "Cooking Chef",
+		"label": "Kenwood Cooking Chef OHNE Modellnummer"
+	},
+	{
+		"search": "Cooking Chef\\s+(\\(?[a-zA-z]+\\s+\\)?)",
+		"replace": "Cooking Chef $1",
+		"label": "Kenwood Cooking Chef mit Modellnummer 2"
+	},
+	{
+		"search": "Major Titanium",
+		"replace": "Major Titanium$1",
+		"label": "Kenwood Major Titanium OHNE Modellnummer"
+	},
+	{
+		"search": "Major Titanium\\s+(\\(?[a-zA-z]+\\s+\\)?)",
+		"replace": "Major Titanium $1",
+		"label": "Kenwood Major Titanium mit Modellnummer"
+	}
+]

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mikrotypografie</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Mikrotypografie</h1>
+
+    <p>Dieses Tool entstand als Hilfsmittel für die redaktionelle Arbeit am HTML-Quelltext von Artikeln in einem CMS.</p>
+</header>
+
+<main>
+      <label for="inputText">Input HTML</label>
+      <textarea id="inputText" class="form-control" rows="10"></textarea>
+
+      <button id="copyButton" class="btn btn-primary">Copy to Clipboard</button>
+
+      <span id="successIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20" fill="green">
+            <path d="M18.571 2.143l-10.714 10.714-4.285-4.286-1.428 1.428 5.713 5.714 12.142-12.143z"/>
+        </svg>
+      </span>
+
+      <label for="outputText">Output HTML</label>
+      <textarea id="outputText" class="form-control" rows="10" readonly></textarea>
+
+</main>
+
+<aside>
+    <h2>Ersetzungs-Tabelle</h2>
+    <p>Die Code-Stückchen in der 2. und 3. Spalte sind noch noch ein bisschen buggy, d.h. man vertraue dieser Tabelle <i>eher nicht.</i> Von Interesse ist ohnehin nur die 1. Spalte.</p>
+
+
+    <p><strong>Legende:</strong>
+    <code style="background-color: DeepSkyBlue">&lt;202f&gt;</code> Schmales nicht umbrechendes Leerzeichen
+    <code style="background-color: orange">&lt;0xa0&gt;</code> Geschütztes Leerzeichen
+    </p>
+    <table id="replacements">
+        <thead>
+            <tr>
+            <th scope="col">Label</th>
+            <th scope="col">Search Regex</th>
+            <th scope="col">Replace</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- Replacement examples go here -->
+        </tbody>
+        <tfoot>
+            <tr>
+            <th scope="col">Label</th>
+            <th scope="col">Search Regex</th>
+            <th scope="col">Replace</th>
+            </tr>
+        </tfoot>
+    </table>
+</aside>
+
+<script type="module">
+  import Microtypography from './microtypography.js';
+
+  // Initialize the application when the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new Microtypography('replacements.json');
+  });
+</script>
+</body>
+</html>
